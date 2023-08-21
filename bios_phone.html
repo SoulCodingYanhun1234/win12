@@ -54,8 +54,8 @@
             <p class="tit">BIOS Setup Utility</p>
         </nav>
         <nav class="pages" style="padding-left: 15px;">
-            <a class="page" id="main" onclick="tab=0;ChangePage()">Main</a>
-            <a class="page" id="exit" onclick="tab=1;ChangePage()">Exit</a>
+            <a class="page" id="main" onclick="ChangePage(0)">Main</a>
+            <a class="page" id="exit" onclick="ChangePage(1)">Exit</a>
         </nav>
     </head>
     <div id="mainPage">
@@ -94,8 +94,8 @@
         var here;
         var tab=0;
         timeChange();
-        function ChangePage(){
-            if (!tab) {
+        function ChangePage(tab){
+            if (tab === 0) {
                 document.getElementById('exitPage').style.display = 'none';
                 document.getElementById('mainPage').style.display = '';
                 document.getElementById('exit').style.cssText = 'background-color: #0100a2;color: #aaaaaa;';
@@ -111,7 +111,7 @@
                 tab = 1;
             }
         }
-        ChangePage();
+        ChangePage(tab);
         h = window.innerHeight * 0.15;
         w = window.innerWidth * 0.3;
         document.getElementById('confirm').style.height = h + "px";
